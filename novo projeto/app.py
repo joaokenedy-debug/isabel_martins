@@ -552,5 +552,6 @@ def sobre():
 if __name__ == '__main__':
     # cria o DB e seeds se necessário
     init_db()
-    # rodar em debug para desenvolvimento
-    app.run(debug=True)
+  
+    app.run(host="0.0.0.0", port=8080)
+
