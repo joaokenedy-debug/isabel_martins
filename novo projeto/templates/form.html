@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block title %}{{ grupo }} — Dra. Isabel Martins{% endblock %}
+
+{% block content %}
+<div class="questionnaire-container">
+    <h2 class="section-title">{{ grupo }}</h2>
+
+    <form method="POST" class="question-form">
+        {% for pergunta in perguntas %}
+        <div class="question-card">
+            <p class="question-text">{{ pergunta }}</p>
+            <div class="options">
+                <label class="option">
+                    <input type="radio" name="{{ pergunta }}" value="sim" required>
+                    <span>Sim</span>
+                </label>
+                <label class="option">
+                    <input type="radio" name="{{ pergunta }}" value="nao">
+                    <span>Não</span>
+                </label>
+            </div>
+        </div>
+        {% endfor %}
+
+        <div class="form-actions">
+            {% if grupo_index > 0 %}
+            <a href="{{ url_for('perguntas', grupo_index=grupo_index - 1) }}" class="btn btn-prev">← Anterior</a>
+            {% endif %}
+            
+            <button type="submit" class="btn btn-next">
+                {% if grupo_index + 1 == total %}
+                    Finalizar
+                {% else %}
+                    Próximo Grupo →
+                {% endif %}
+            </button>
+        </div>
+    </form>
+</div>
+{% endblock %}

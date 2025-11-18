@@ -1,0 +1,11 @@
+conn = sqlite3.connect("database.db")
+c = conn.cursor()
+
+for grupo, perguntas in perguntas_por_grupo.items():
+    for texto in perguntas:
+        c.execute("INSERT INTO perguntas (grupo, texto) VALUES (?, ?)", (grupo, texto))
+
+conn.commit()
+conn.close()
+
+print("Perguntas inseridas com sucesso!")

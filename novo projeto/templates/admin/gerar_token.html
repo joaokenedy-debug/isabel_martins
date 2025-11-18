@@ -1,0 +1,20 @@
+{% extends "base_admin.html" %}
+{% block title %}Gerar Token{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h2>Gerar Token de Acesso</h2>
+
+    <form method="POST">
+        <button class="btn">Gerar Token</button>
+    </form>
+
+    {% if token %}
+        <div class="alert success" style="margin-top:20px;">
+            <strong>Token gerado:</strong><br>
+            <span style="font-size:20px; font-weight:bold;">{{ token }}</span>
+        </div>
+    {% endif %}
+</div>
+{% endblock %}
+

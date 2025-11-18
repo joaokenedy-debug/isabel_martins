@@ -1,0 +1,25 @@
+{% extends "base_admin.html" %}
+{% block title %}Dashboard{% endblock %}
+{% block content %}
+<h2>Usuários com relatórios</h2>
+<table class="admin-table">
+  <thead><tr><th>ID</th><th>Nome</th><th>Email</th><th>Empresa</th><th>Ações</th></tr></thead>
+  <tbody>
+    {% for u in usuarios %}
+    <tr>
+      <td>{{ u['id'] }}</td>
+      <td>{{ u['nome'] }}</td>
+      <td>{{ u['email'] }}</td>
+      <td>{{ u['empresa'] }}</td>
+      <td class="actions">
+        <a class="btn small" href="{{ url_for('admin_pdf_download', usuario_id=u['id']) }}">Baixar PDF</a>
+
+        <form action="{{ url_for('admin_email_pdf', usuario_id=u['id']) }}" method="post" style="display:inline;">
+          <button class="btn small secondary" type="submit">Enviar por E-mail</button>
+        </form>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

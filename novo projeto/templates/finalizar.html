@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}Relatório Gerado — Dra. Isabel Martins{% endblock %}
+
+{% block content %}
+<section class="final-section">
+    <h2>Relatório gerado com sucesso!</h2>
+    <p>Você pode baixar seu relatório em PDF ou recebê-lo diretamente por e-mail.</p>
+
+    <div class="buttons">
+        <a href="{{ url_for('pdf_download', usuario_id=usuario_id) }}" class="btn">📄 Baixar PDF</a>
+
+
+
+
+
+        <form action="{{ url_for('enviar_email_pdf', usuario_id=usuario_id) }}" method="POST" style="display:inline;">
+            <button type="submit" class="btn secondary">📧 Enviar por E-mail</button>
+        </form>
+    </div>
+</section>
+{% endblock %}
