@@ -5,4 +5,5 @@ if __name__ == '__main__':
     # cria o DB e seeds se necessário
 
     # rodar em debug para desenvolvimento
-    app.run(debug=True)
+
+    app.run(host="0.0.0.0", port=5000,debug=True)
