@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Dra. Isabel Martins{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <h1 class="logo">Dra. Isabel Martins</h1>
+            <nav>
+                <a href="{{ url_for('index') }}">Início</a>
+                <a href="{{ url_for('inicio') }}">Formulário</a>
+                <a href="{{ url_for('admin_login') }}">Admin</a>
+                
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container main-content">
+            {% block content %}{% endblock %}
+        </div>
+    </main>
+
+    <footer >
+        <p id="texto-footer">&copy; {{ 2025 }} Dra. Isabel Martins — Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>
