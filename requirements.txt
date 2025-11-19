@@ -4,6 +4,11 @@ Flask-Login==0.6.3
 Flask-SQLAlchemy==3.1.1
 Flask-WTF==1.2.2
 Flask-Migrate==4.1.0
+Flask-Mail
+matplotlib
+numpy
+Pillow
+
 
 Werkzeug==3.0.4
 itsdangerous==2.2.0
@@ -16,3 +21,4 @@ email-validator==2.3.0
 gunicorn==23.0.0
 openpyxl==3.1.2
 psycopg2-binary
+
